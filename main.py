@@ -1,4 +1,5 @@
 from classes.library import Library
+from functions.library_functions import add_book
 # open app
 print("Welcome to the Personal Library App\n")
 # open menu
@@ -24,6 +25,7 @@ while choice != "9":
     choice = open_menu()
     # Add book
     if choice == "1":
+        add_book(library)
         pass
     # Find book
     elif choice == "2":
@@ -40,7 +42,7 @@ while choice != "9":
     # List books in a bookshelf 
     elif choice == "6":
         pass
-    # List books by genre
+    # List books by genre/research topic
     elif choice == "7":
         pass
     # List books by highest rating

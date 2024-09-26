@@ -1,8 +1,8 @@
-from book import Book
+from classes.book import Book
 
 class NonFictionBook(Book):
-    def __init__(self, title, author, genre, rating, research_topic):
-        super().__init__(title, author, genre, rating)
+    def __init__(self, title, author, rating, research_topic):
+        super().__init__(title, author, rating)
         self.research_topic = research_topic
         
         

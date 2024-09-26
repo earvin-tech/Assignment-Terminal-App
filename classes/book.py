@@ -5,4 +5,4 @@ class Book:
         self.rating = rating
 
     def __str__(self):
-        return f"This book is {self.title} by {self.author}, with a rating of {self.rating}"
+        return f"{self.title} by {self.author} with rating of {self.rating}/5"
