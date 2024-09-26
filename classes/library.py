@@ -6,3 +6,6 @@ class Library:
 
     def add_book(self, new_book):
         self.entire_library.append(new_book)
+
+    def list_all_books(self):
+        return self.entire_library
