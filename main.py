@@ -1,5 +1,5 @@
 from classes.library import Library
-from functions.library_functions import add_book, list_all_books, add_new_bookshelf
+from functions.library_functions import add_book, list_all_books, add_new_bookshelf, list_all_bookshelves
 # open app
 print("Welcome to the Personal Library App\n")
 # open menu
@@ -38,7 +38,7 @@ while choice != "9":
         pass
     # List all bookshelves
     elif choice == "5":
-        pass
+        list_all_bookshelves(library)
     # List books in a bookshelf 
     elif choice == "6":
         pass

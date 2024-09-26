@@ -12,3 +12,6 @@ class Library:
     
     def add_bookshelf(self, new_bookshelf):
         self.bookshelves.append(new_bookshelf)
+
+    def list_bookshelves(self):
+        return self.bookshelves

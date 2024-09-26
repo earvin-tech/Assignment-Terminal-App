@@ -32,7 +32,7 @@ def add_book(library):
     
     library.add_book(new_book)
 
-    print("Book has been added")
+    print("Book has been added\n")
 
     # if library.bookshelves:
     #     print("Would you like to add this book to a bookshelf?")
@@ -52,3 +52,12 @@ def add_new_bookshelf(library):
     # Create instance of bookshelf
     new_bookshelf = Bookshelf(bookshelf_input)
     library.add_bookshelf(new_bookshelf)
+    print("Bookshelf added\n")
+
+def list_all_bookshelves(library):
+    all_bookshelves = library.list_bookshelves()
+    if not all_bookshelves:
+        print("No bookshelves found")
+    for bookshelf in all_bookshelves:
+        print(bookshelf)
+    print("\n")
