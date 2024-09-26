@@ -50,6 +50,6 @@ while choice != "9":
         pass
     # Exit
     elif choice == "9":
-        pass
+        break
     else: 
         print("Invalid, enter choice between 1-9\n")
