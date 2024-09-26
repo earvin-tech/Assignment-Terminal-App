@@ -9,3 +9,6 @@ class Library:
 
     def list_all_books(self):
         return self.entire_library
+    
+    def add_bookshelf(self, new_bookshelf):
+        self.bookshelves.append(new_bookshelf)
