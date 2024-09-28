@@ -25,3 +25,15 @@ class Library:
         for bookshelf in self.bookshelves:
             if bookshelf.bookshelf_name == bookshelf_name:
                 return bookshelf
+            
+    def delete_bookshelf(self, shelf_name):
+        new_bookshelves = []
+        is_deleted = False
+        for shelf in self.bookshelves:
+            if shelf.bookshelf_name != shelf_name:
+                new_bookshelves.append(shelf)
+            else:
+                is_deleted = True
+
+        self.bookshelves = new_bookshelves
+        return is_deleted

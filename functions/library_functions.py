@@ -56,3 +56,13 @@ def list_all_bookshelves(library):
     for bookshelf in all_bookshelves:
         print(bookshelf)
     print("\n")
+
+def delete_bookshelf(library):
+    print("Removing Bookshelf")
+    # take input the id of the parking slot
+    shelf_name = input("Enter the name of the bookshelf you wish to remove: ")
+    # delete the parking slot
+    if library.delete_bookshelf(shelf_name):
+        print("Bookshelf deleted\n")
+    else:
+        print("No parking slot with that id.\n")

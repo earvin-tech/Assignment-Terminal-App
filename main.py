@@ -1,7 +1,9 @@
+from colored import Fore, Back, Style # type: ignore
+
 from classes.library import Library
-from functions.library_functions import add_book, list_all_books, add_new_bookshelf, list_all_bookshelves
+from functions.library_functions import add_book, list_all_books, add_new_bookshelf, list_all_bookshelves, delete_bookshelf
 # open app
-print("\nWelcome to the Personal Library App\n")
+print(f"{Fore.yellow}{Back.red}\nWelcome to the Personal Library App\n{Style.reset}")
 # open menu
 def open_menu():
     print("Enter 1 to add a new book")
@@ -39,7 +41,7 @@ while choice != "9":
         pass
     # Remove bookshelf
     elif choice == "5":
-        pass
+        delete_bookshelf(library)
     # List all bookshelves
     elif choice == "6":
         list_all_bookshelves(library)
