@@ -10,7 +10,10 @@ class Bookshelf:
         self.books.append(new_book)
 
     def get_books(self):
-        return self.books
+        if self.books:
+            return self.books
+        else:
+            return f"No books found"
 
     def __str__(self):
         if self.books:

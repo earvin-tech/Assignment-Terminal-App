@@ -66,3 +66,8 @@ def delete_bookshelf(library):
         print("Bookshelf deleted\n")
     else:
         print("No parking slot with that id.\n")
+
+def list_books_in_bookshelf(library):
+    input_bookshelf_to_list = input("Enter bookshelf you wish to list: ")
+    bookshelf_to_list = library.find_bookshelf(input_bookshelf_to_list)
+    print(bookshelf_to_list.get_books())
