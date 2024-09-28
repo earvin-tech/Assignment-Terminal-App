@@ -2,6 +2,7 @@ from colored import Fore, Back, Style # type: ignore
 
 from classes.library import Library
 from functions.library_functions import add_book, list_all_books, add_new_bookshelf, list_all_bookshelves, delete_bookshelf
+from functions.file_functions import save_and_exit, load_from_file
 # open app
 print(f"{Fore.yellow}{Back.red}\nWelcome to the Personal Library App\n{Style.reset}")
 # open menu
@@ -20,9 +21,11 @@ def open_menu():
     choice = input("Enter your choice: ")
     return choice
 
+choice = ""
+
 library = Library("library_main")
 
-choice = ""
+load_from_file(library)
 
 while choice != "9":
     choice = open_menu()
@@ -56,6 +59,7 @@ while choice != "9":
         pass
     # Exit
     elif choice == "0":
+        save_and_exit(library)
         break
     else: 
         print("Invalid, enter choice between 0-9\n")

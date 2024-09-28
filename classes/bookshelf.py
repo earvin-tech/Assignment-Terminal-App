@@ -3,6 +3,9 @@ class Bookshelf:
         self.bookshelf_name = bookshelf_name
         self.books = []
 
+    def get_name(self):
+        return self.bookshelf_name
+
     def add_book_to_bookshelf(self, new_book):
         self.books.append(new_book)
 
