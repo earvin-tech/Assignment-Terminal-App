@@ -29,18 +29,13 @@ def add_book(library):
         else: 
             print("Invalid option, try again")
             
-    
     library.add_book(new_book)
 
     print("Book has been added\n")
 
-    # if library.bookshelves:
-    #     print("Would you like to add this book to a bookshelf?")
-    #     adding_to_bookshelf_option = input("Press 1 if yes, or 2 if no: ")
-
 def list_all_books(library):
     # Use library getter method to get list of all books
-    all_books = library.list_all_books()
+    all_books = library.get_all_books()
     if not all_books:
         print("No books found")
     for book in all_books:
@@ -55,7 +50,7 @@ def add_new_bookshelf(library):
     print("Bookshelf added\n")
 
 def list_all_bookshelves(library):
-    all_bookshelves = library.list_bookshelves()
+    all_bookshelves = library.get_all_bookshelves()
     if not all_bookshelves:
         print("No bookshelves found")
     for bookshelf in all_bookshelves:
