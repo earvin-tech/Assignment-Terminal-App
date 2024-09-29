@@ -92,4 +92,7 @@ def list_same_genre(library):
             genre_list.append(book.get_title())
         else:
             continue
-    print(genre_list)
+    print(f"The following are books in the genre {genre_to_search}:\n")
+    for item in genre_list:
+        print(item)
+    print("\n")
