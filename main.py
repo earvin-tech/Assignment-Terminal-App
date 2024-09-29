@@ -1,10 +1,14 @@
 from colored import Fore, Back, Style # type: ignore
+import emoji # type: ignore
 
 from classes.library import Library
 from functions.library_functions import add_book, list_all_books, add_new_bookshelf, list_all_bookshelves, delete_bookshelf, list_books_in_bookshelf, add_book_to_bookshelf, list_same_genre, list_by_rating
 from functions.file_functions import save_and_exit, load_from_file
 # open app
 print(f"{Fore.yellow}{Back.red}\nWelcome to the Personal Library App\n{Style.reset}")
+print("\N{open book} \N{books} \N{orange book}")
+
+
 # open menu
 def open_menu():
     print("Enter 1 to add a new book")
@@ -60,6 +64,8 @@ while choice != "0":
         list_by_rating(library)
     # Exit
     elif choice == "0":
+        print("Thank you for using the Personal Library App!!!")
+        print("\N{grinning face}")
         save_and_exit(library)
         break
     else: 
