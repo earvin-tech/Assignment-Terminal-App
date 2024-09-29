@@ -3,13 +3,22 @@ from classes.bookshelf import Bookshelf
 from classes.non_fiction_book import NonFictionBook
 from classes.fiction_book import FictionBook
 
+from colored import Fore, Back, Style # type: ignore
+
 def add_book(library):
     # Take title of book as input
     book_title = input("Enter title of book: ")
     # Take author as input
     book_author = input("Enter author of book: ")
     # Take rating as input
-    book_rating = input("Enter your rating of the book 1-5: ")
+    book_rating = "0"
+    while int(book_rating) < 1 or int(book_rating) > 5:
+
+        book_rating = input("Enter your rating of the book 1-5: ")
+        
+        if int(book_rating) < 1 or int(book_rating) > 5:
+            print(f"{Back.red}Rating must be between 1-5. Try Again.{Style.reset}\n")
+   
     # Check if fiction or non-fiction
     # Create instance of book (Fiction or Non-Fiction)
     fiction_or_non_fiction = ""
@@ -27,7 +36,7 @@ def add_book(library):
             new_book = NonFictionBook(book_title, book_author, book_rating, book_research_topic)
             break
         else: 
-            print("Invalid option, try again")
+            print(f"{Back.red}Invalid option, select 1 or 2.{Style.reset}\n")
             
     library.add_book(new_book)
 

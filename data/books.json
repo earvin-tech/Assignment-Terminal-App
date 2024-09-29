@@ -28,5 +28,11 @@
         "author_book": "Suz Collins",
         "rating_book": "2",
         "genre": "Dystopia"
+    },
+    {
+        "title_book": "Bleach",
+        "author_book": "Kubo",
+        "rating_book": "6",
+        "genre": "Action"
     }
 ]
