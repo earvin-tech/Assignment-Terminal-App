@@ -21,3 +21,16 @@ This app has the following licenses:
 5. After installing all packages open your terminal and enter: "main.py"
 
 6. Follow the prompts of the menu to use the app. 
+
+
+## Functionality
+
+### Non-Fiction book bugs
+
+At this moment adding non-fiction books will not work with all functionality, this will be fixed in future updates.
+
+### Adding existing books to bookshelf
+Needs to be fixed, shows null value.
+
+### Listing books in a bookshelf
+Result will show null. 
