@@ -83,3 +83,13 @@ def add_book_to_bookshelf(library):
     print(f"{book_to_add} has been added to bookshelf {bookshelf_to_add_to}")
 
 # To fix above
+
+def list_same_genre(library):
+    genre_to_search = input("Enter genre you wish to search: \n")
+    genre_list = []
+    for book in library.get_all_books():
+        if book.get_genre() == genre_to_search:
+            genre_list.append(book.get_title())
+        else:
+            continue
+    print(genre_list)

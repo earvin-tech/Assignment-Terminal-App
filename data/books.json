@@ -1,0 +1,20 @@
+[
+    {
+        "title_book": "Lord of the rings",
+        "author_book": "asd",
+        "rating_book": "5",
+        "genre": "Fantasy"
+    },
+    {
+        "title_book": "Dragon Ball",
+        "author_book": "a",
+        "rating_book": "5",
+        "genre": "Action"
+    },
+    {
+        "title_book": "Game of Thrones",
+        "author_book": "ef",
+        "rating_book": "5",
+        "genre": "Fantasy"
+    }
+]
