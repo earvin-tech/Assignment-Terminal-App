@@ -21,10 +21,11 @@ class Library:
             if book.title == book_name:
                 return book
 
-    def find_bookshelf(self, bookshelf_name):
+    def find_bookshelf(self, shelf_name):
         for bookshelf in self.bookshelves:
-            if bookshelf.bookshelf_name == bookshelf_name:
+            if bookshelf.bookshelf_name == shelf_name:
                 return bookshelf
+                
             
     def delete_bookshelf(self, shelf_name):
         new_bookshelves = []

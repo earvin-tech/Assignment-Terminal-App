@@ -13,10 +13,7 @@ class Bookshelf:
         if self.books:
             return self.books
         else:
-            return f"No books found"
+            return None
 
     def __str__(self):
-        if self.books:
-            return f"Bookshelf: {self.bookshelf_name}."
-        else:
-            return f"Bookshelf: {self.bookshelf_name}" 
+        return f"Bookshelf: {self.bookshelf_name}"

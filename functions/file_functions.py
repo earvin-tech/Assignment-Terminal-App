@@ -8,16 +8,19 @@ from classes.non_fiction_book import NonFictionBook
 def save_and_exit(library):
     json_to_write1 = []
     for bookshelf in library.get_all_bookshelves():
-        if bookshelf.get_books():
-            bookshelf_json = {
-                "bookshelf_name": bookshelf.get_name(),
-                "books": bookshelf.get_books()
-            }
-        else:
-            bookshelf_json = {
-                "bookshelf_name": bookshelf.get_name()
-            }
-        json_to_write1.append(bookshelf_json)
+            if bookshelf.get_books():
+                bookshelf_json = {
+                    "bookshelf_name": bookshelf.get_name()
+                }
+                for book in bookshelf.get_books():
+                    bookshelf_json[f"{book}"] = book
+            
+            else: 
+                bookshelf_json = {
+                    "bookshelf_name": bookshelf.get_name()
+                }
+
+            json_to_write1.append(bookshelf_json)
     
     with open("data/library.json", "w") as json_file1:
         json.dump(json_to_write1, json_file1, indent=4)
@@ -25,7 +28,6 @@ def save_and_exit(library):
     json_to_write2 = []
     for book in library.get_all_books():
         if book.get_genre():
-            genre_or_rtopic = book.get_genre()
             books_json = {
             "title_book": book.get_title(),
             "author_book": book.get_author(),
@@ -33,7 +35,6 @@ def save_and_exit(library):
             "genre": book.get_genre()
         }
         elif book.get_research_topic():
-            genre_or_rtopic = book.get_research_topic
             books_json = {
             "title_book": book.get_title(),
             "author_book": book.get_author(),

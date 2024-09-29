@@ -67,15 +67,19 @@ def delete_bookshelf(library):
     else:
         print("No parking slot with that id.\n")
 
+# To fix below
+
 def list_books_in_bookshelf(library):
     input_bookshelf_to_list = input("Enter bookshelf you wish to list: ")
-    bookshelf_to_list = library.find_bookshelf(input_bookshelf_to_list)
-    print(bookshelf_to_list.get_books())
+    bookshelf_to_list = library.find_bookshelf(input_bookshelf_to_list).get_books()
+    print(bookshelf_to_list)
 
-# def add_book_to_bookshelf(library):
-#     input_book_to_add_to_shelf = input("Enter the book you would like to add to a bookshelf: ")
-#     book_to_add = library.find_book(input_book_to_add_to_shelf)
-#     input_bookshelf_to_add_to = input("Enter the bookshelf you would like to add to: ")
-#     bookshelf_to_add_to = library.find_bookshelf(input_bookshelf_to_add_to)
-#     bookshelf_to_add_to.add_book_to_bookshelf(book_to_add)
-#     print(f"{book_to_add} has been added to bookshelf {bookshelf_to_add_to}")
+def add_book_to_bookshelf(library):
+    input_book_to_add_to_shelf = input("Enter the book you would like to add to a bookshelf: ")
+    book_to_add = library.find_book(input_book_to_add_to_shelf)
+    input_bookshelf_to_add_to = input("Enter the bookshelf you would like to add to: ")
+    bookshelf_to_add_to = library.find_bookshelf(input_bookshelf_to_add_to).get_name()
+    bookshelf_to_add_to.add_book_to_bookshelf(book_to_add)
+    print(f"{book_to_add} has been added to bookshelf {bookshelf_to_add_to}")
+
+# To fix above
