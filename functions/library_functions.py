@@ -96,3 +96,38 @@ def list_same_genre(library):
     for item in genre_list:
         print(item)
     print("\n")
+
+def list_by_rating(library):
+    rating_list = []
+    while len(rating_list) != len(library.get_all_books()):
+        for book in library.get_all_books():
+            if book.get_rating() == "5":
+                rating_list.append(book)
+            else:
+                continue
+        for book in library.get_all_books():
+            if book.get_rating() == "4":
+                rating_list.append(book)
+            else:
+                continue
+        for book in library.get_all_books():
+            if book.get_rating() == "3":
+                rating_list.append(book)
+            else:
+                continue
+        for book in library.get_all_books():
+            if book.get_rating() == "2":
+                rating_list.append(book)
+            else:
+                continue
+        for book in library.get_all_books():
+            if book.get_rating() == "1":
+                rating_list.append(book)
+            else:
+                continue
+    print("Listing in order of highest rating:\n")
+    for book in rating_list:
+        print(book.get_title())
+    print("\n")
+        
+    

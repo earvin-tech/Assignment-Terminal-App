@@ -1,20 +1,32 @@
 [
     {
-        "title_book": "Lord of the rings",
-        "author_book": "asd",
-        "rating_book": "5",
+        "title_book": "Harry Potter",
+        "author_book": "JK",
+        "rating_book": "3",
         "genre": "Fantasy"
     },
     {
         "title_book": "Dragon Ball",
-        "author_book": "a",
+        "author_book": "Akira",
         "rating_book": "5",
         "genre": "Action"
     },
     {
-        "title_book": "Game of Thrones",
-        "author_book": "ef",
-        "rating_book": "5",
+        "title_book": "Lord of the rings",
+        "author_book": "Tolkien",
+        "rating_book": "4",
         "genre": "Fantasy"
+    },
+    {
+        "title_book": "Twilight",
+        "author_book": "Dunno",
+        "rating_book": "1",
+        "genre": "Fantasy"
+    },
+    {
+        "title_book": "Hunger Games",
+        "author_book": "Suz Collins",
+        "rating_book": "2",
+        "genre": "Dystopia"
     }
 ]

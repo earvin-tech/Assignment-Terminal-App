@@ -1,7 +1,7 @@
 from colored import Fore, Back, Style # type: ignore
 
 from classes.library import Library
-from functions.library_functions import add_book, list_all_books, add_new_bookshelf, list_all_bookshelves, delete_bookshelf, list_books_in_bookshelf, add_book_to_bookshelf, list_same_genre
+from functions.library_functions import add_book, list_all_books, add_new_bookshelf, list_all_bookshelves, delete_bookshelf, list_books_in_bookshelf, add_book_to_bookshelf, list_same_genre, list_by_rating
 from functions.file_functions import save_and_exit, load_from_file
 
 # open app
@@ -28,7 +28,7 @@ library = Library("library_main")
 
 load_from_file(library)
 
-while choice != "9":
+while choice != "0":
     choice = open_menu()
     # Add book
     if choice == "1":
@@ -58,7 +58,7 @@ while choice != "9":
         list_same_genre(library)
     # List books by highest rating
     elif choice == "9":
-        pass
+        list_by_rating(library)
     # Exit
     elif choice == "0":
         save_and_exit(library)
