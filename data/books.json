@@ -1,0 +1,14 @@
+[
+    {
+        "title_book": "Dragon Ball",
+        "author_book": "Akira Toriyama",
+        "rating_book": "5",
+        "genre": "Action"
+    },
+    {
+        "title_book": "Game of Thrones",
+        "author_book": "George RR Martin",
+        "rating_book": "5",
+        "genre": "Fantasy"
+    }
+]

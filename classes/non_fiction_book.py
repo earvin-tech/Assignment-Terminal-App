@@ -5,7 +5,8 @@ class NonFictionBook(Book):
         super().__init__(title, author, rating)
         self.research_topic = research_topic
         
-        
+    def get_research_topic(self):
+        return self.research_topic
     
     def __str__(self):
         return super().__str__()

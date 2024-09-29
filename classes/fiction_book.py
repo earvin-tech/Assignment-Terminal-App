@@ -5,5 +5,8 @@ class FictionBook(Book):
         super().__init__(title, author, rating)
         self.genre = genre
 
+    def get_genre(self):
+        return self.genre
+
     def __str__(self):
         return super().__str__()
