@@ -3,6 +3,9 @@ class Bookshelf:
         self.bookshelf_name = bookshelf_name
         self.books = []
 
+    def get_self(self):
+        return self
+
     def get_name(self):
         return self.bookshelf_name
 
