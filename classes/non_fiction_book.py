@@ -9,4 +9,4 @@ class NonFictionBook(Book):
         return self.research_topic
     
     def __str__(self):
-        return super().__str__()
+        return f"{self.title} by {self.author} with a rating of {self.rating}/5"

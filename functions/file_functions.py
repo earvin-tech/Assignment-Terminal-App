@@ -12,8 +12,13 @@ def save_and_exit(library):
                 bookshelf_json = {
                     "bookshelf_name": bookshelf.get_name()
                 }
+                i = 0
                 for book in bookshelf.get_books():
-                    bookshelf_json[f"{book}"] = book.get_title()
+                    bookshelf_json[f"title{i}"] = book.get_title()
+                    bookshelf_json[f"author{i}"] = book.get_author()
+                    bookshelf_json[f"rating{i}"] = book.get_rating()
+                    i += 1
+                book_count = i
             
             else: 
                 bookshelf_json = {
@@ -55,6 +60,9 @@ def load_from_file(library):
 
         for bookshelf in json_to_load1:
             bookshelf = Bookshelf(bookshelf["bookshelf_name"])
+            if bookshelf.get_books():
+                for book in bookshelf.get_books():
+                    pass
 
             
             library.add_bookshelf(bookshelf)
