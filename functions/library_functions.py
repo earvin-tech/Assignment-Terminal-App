@@ -59,18 +59,18 @@ def add_new_bookshelf(library):
     print("Bookshelf added\n")
 
 def list_all_bookshelves(library):
+    print("Listing all bookshelves: ")
     all_bookshelves = library.get_all_bookshelves()
     if not all_bookshelves:
-        print("No bookshelves found")
+        print("No bookshelves found\n")
     for bookshelf in all_bookshelves:
         print(bookshelf)
     print("\n")
 
 def delete_bookshelf(library):
-    print("Removing Bookshelf")
-    # take input the id of the parking slot
+    # take input the name of the bookshelf
     shelf_name = input("Enter the name of the bookshelf you wish to remove: ")
-    # delete the parking slot
+    # delete the bokshelf
     if library.delete_bookshelf(shelf_name):
         print("Bookshelf deleted\n")
     else:
@@ -81,14 +81,14 @@ def delete_bookshelf(library):
 def list_books_in_bookshelf(library):
     input_bookshelf_to_list = input("Enter bookshelf you wish to list: ")
     bookshelf_to_list = library.find_bookshelf(input_bookshelf_to_list)
-    print(list(bookshelf_to_list.get_books()))
+    print(bookshelf_to_list.get_books())
 
 def add_book_to_bookshelf(library):
     input_book_to_add_to_shelf = input("Enter the book you would like to add to a bookshelf: ")
     book_to_add = library.find_book(input_book_to_add_to_shelf)
     input_bookshelf_to_add_to = input("Enter the bookshelf you would like to add to: ")
     bookshelf_to_add_to = library.find_bookshelf(input_bookshelf_to_add_to).get_self()
-    bookshelf_to_add_to.add_book_to_bookshelf(book_to_add)
+    bookshelf_to_add_to.add_new_book_to_bookshelf(book_to_add)
     print(f"{book_to_add.get_title()} has been added to {bookshelf_to_add_to}")
 
 # To fix above

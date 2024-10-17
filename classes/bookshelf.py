@@ -9,7 +9,7 @@ class Bookshelf:
     def get_name(self):
         return self.bookshelf_name
 
-    def add_book_to_bookshelf(self, new_book):
+    def add_new_book_to_bookshelf(self, new_book):
         self.books.append(new_book)
 
     def get_books(self):

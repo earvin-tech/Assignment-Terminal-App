@@ -1,25 +1,23 @@
 import json
 
-from classes.library import Library
 from classes.bookshelf import Bookshelf
 from classes.fiction_book import FictionBook
-from classes.non_fiction_book import NonFictionBook
 
 def save_and_exit(library):
     json_to_write1 = []
     for bookshelf in library.get_all_bookshelves():
             if bookshelf.get_books():
-                bookshelf_json = {
-                    "bookshelf_name": bookshelf.get_name()
-                }
                 i = 0
                 for book in bookshelf.get_books():
-                    bookshelf_json[f"title{i}"] = book.get_title()
-                    bookshelf_json[f"author{i}"] = book.get_author()
-                    bookshelf_json[f"rating{i}"] = book.get_rating()
-                    i += 1
-                book_count = i
-            
+                    bookshelf_json = {
+                        "bookshelf_name": bookshelf.get_name(),
+                        f"book{i}": {
+                            f"title{i}": book.get_title(),
+                            f"author{i}": book.get_author(),
+                            f"rating{i}": book.get_rating()
+                        }
+                }
+                
             else: 
                 bookshelf_json = {
                     "bookshelf_name": bookshelf.get_name()
@@ -61,9 +59,11 @@ def load_from_file(library):
         for bookshelf in json_to_load1:
             bookshelf = Bookshelf(bookshelf["bookshelf_name"])
             if bookshelf.get_books():
+                i = 0
                 for book in bookshelf.get_books():
-                    pass
-
+                    book = FictionBook(f"title{i}", f"author{i}",f"rating{i}")
+                    bookshelf.add_new_book_to_bookshelf(book)
+                    i += 1
             
             library.add_bookshelf(bookshelf)
 
@@ -77,8 +77,6 @@ def load_from_file(library):
         for book in json_to_load2:
             if book["genre"]:
                 book = FictionBook(book["title_book"],book["author_book"], book["rating_book"], book["genre"])
-            elif book["research_topic"]:
-                book = NonFictionBook(book["title_book"], book["author_book"], book["rating_book"], book["research_topic"])
             library.add_book(book)
     
     except FileNotFoundError:
