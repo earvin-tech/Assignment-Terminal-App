@@ -87,8 +87,8 @@ def add_book_to_bookshelf(library):
     input_book_to_add_to_shelf = input("Enter the book you would like to add to a bookshelf: ")
     book_to_add = library.find_book(input_book_to_add_to_shelf)
     input_bookshelf_to_add_to = input("Enter the bookshelf you would like to add to: ")
-    bookshelf_to_add_to = library.find_bookshelf(input_bookshelf_to_add_to).get_self()
-    bookshelf_to_add_to.add_new_book_to_bookshelf(book_to_add)
+    bookshelf_to_add_to = library.find_bookshelf(input_bookshelf_to_add_to)
+    bookshelf_to_add_to.add_book_to_bookshelf(book_to_add)
     print(f"{book_to_add.get_title()} has been added to {bookshelf_to_add_to}")
 
 # To fix above

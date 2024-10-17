@@ -34,5 +34,11 @@
         "author_book": "Kubo",
         "rating_book": "5",
         "genre": "Action"
+    },
+    {
+        "title_book": "One Punch Man",
+        "author_book": "ONE",
+        "rating_book": "5",
+        "genre": "Action"
     }
 ]

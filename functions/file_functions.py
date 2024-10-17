@@ -8,13 +8,14 @@ def save_and_exit(library):
     for bookshelf in library.get_all_bookshelves():
             if bookshelf.get_books():
                 i = 0
-                for book in bookshelf.get_books():
+                for book in bookshelf.get_book_list():
                     bookshelf_json = {
                         "bookshelf_name": bookshelf.get_name(),
                         f"book{i}": {
                             f"title{i}": book.get_title(),
                             f"author{i}": book.get_author(),
-                            f"rating{i}": book.get_rating()
+                            f"rating{i}": book.get_rating(),
+                            f"genre{i}": book.get_genre()
                         }
                 }
                 
@@ -61,7 +62,7 @@ def load_from_file(library):
             if bookshelf.get_books():
                 i = 0
                 for book in bookshelf.get_books():
-                    book = FictionBook(f"title{i}", f"author{i}",f"rating{i}")
+                    book = FictionBook(f"title{i}", f"author{i}",f"rating{i}", f"genre{i}")
                     bookshelf.add_new_book_to_bookshelf(book)
                     i += 1
             

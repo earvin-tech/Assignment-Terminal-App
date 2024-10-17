@@ -3,18 +3,22 @@ class Bookshelf:
         self.bookshelf_name = bookshelf_name
         self.books = []
 
-    def get_self(self):
-        return self
-
     def get_name(self):
         return self.bookshelf_name
 
-    def add_new_book_to_bookshelf(self, new_book):
+    def add_book_to_bookshelf(self, new_book):
         self.books.append(new_book)
+
+    def get_book_list(self):
+        if self.books:
+            return self.books
+        else:
+            return None
 
     def get_books(self):
         if self.books:
-            return self.books
+            for book in self.books:
+                return book
         else:
             return None
 
