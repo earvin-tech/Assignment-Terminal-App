@@ -1,1 +1,20 @@
-[]
+[
+    {
+        "title_book": "The Hunger Games",
+        "author_book": "Suzanne Collins",
+        "rating_book": "4",
+        "genre": "Fantasy"
+    },
+    {
+        "title_book": "To Kill a Mockingbird",
+        "author_book": "Harper Lee",
+        "rating_book": "5",
+        "genre": "Historical Fiction"
+    },
+    {
+        "title_book": "The Alchemist",
+        "author_book": "Paulo Coelho",
+        "rating_book": "4",
+        "genre": "Fantasy"
+    }
+]

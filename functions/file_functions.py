@@ -18,6 +18,7 @@ def save_and_exit(library):
                             f"genre{i}": book.get_genre()
                         }
                 }
+                    i += 1
                 
             else: 
                 bookshelf_json = {
