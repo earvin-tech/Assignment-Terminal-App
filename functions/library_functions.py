@@ -74,20 +74,61 @@ def delete_bookshelf(library):
     if library.delete_bookshelf(shelf_name):
         print("Bookshelf deleted\n")
     else:
-        print("No bookshelf with that name\n")
+        print("No bookshelf with that name.\n")
 
 def list_books_in_bookshelf(library):
-    input_bookshelf_to_list = input("Enter bookshelf you wish to list: ")
-    bookshelf_to_list = library.find_bookshelf(input_bookshelf_to_list)
-    print(bookshelf_to_list.get_books())
+    shelf_name = input("Enter bookshelf you wish to list: ")
+    bookshelf = library.find_bookshelf(shelf_name)
+
+
+    if not bookshelf:
+        print("Bookshelf not found.\n")
+        return
+    
+
+    books = bookshelf.get_book_list()
+
+
+    if not books:
+        print(f"No books in '{shelf_name}' shelf.\n")
+    else:
+        print(f"\n Books in '{shelf_name}':")
+        for book in books:
+            print(f"- {book.get_title()} by {book.get_author()} ({book.get_rating()}/5)")
+        print()
+
+
+    # input_bookshelf_to_list = input("Enter bookshelf you wish to list: ")
+    # bookshelf_to_list = library.find_bookshelf(input_bookshelf_to_list)
+    # print(bookshelf_to_list.get_books())
 
 def add_book_to_bookshelf(library):
-    input_book_to_add_to_shelf = input("Enter the book you would like to add to a bookshelf: ")
-    book_to_add = library.find_book(input_book_to_add_to_shelf)
-    input_bookshelf_to_add_to = input("Enter the bookshelf you would like to add to: ")
-    bookshelf_to_add_to = library.find_bookshelf(input_bookshelf_to_add_to)
-    bookshelf_to_add_to.add_book_to_bookshelf(book_to_add)
-    print(f"{book_to_add.get_title()} has been added to {bookshelf_to_add_to}")
+    book_name = input("Enter the name of the book to add to a bookshelf: ")
+    book = library.find_book(book_name)
+
+
+    if not book:
+        print("Book not found.\n")
+        return
+    
+    shelf_name = input("Enter the bookshelf to add the book to: ")
+    bookshelf = library.find_bookshelf(shelf_name)
+
+    if not bookshelf:
+        print("Bookshelf not found.\n")
+        return
+    
+
+    bookshelf.add_new_book_to_bookshelf(book)
+    print(f"'{book.get_title}' has been added to the {bookshelf.get_name()} shelf.\n")
+
+
+    # input_book_to_add_to_shelf = input("Enter the book you would like to add to a bookshelf: ")
+    # book_to_add = library.find_book(input_book_to_add_to_shelf)
+    # input_bookshelf_to_add_to = input("Enter the bookshelf you would like to add to: ")
+    # bookshelf_to_add_to = library.find_bookshelf(input_bookshelf_to_add_to)
+    # bookshelf_to_add_to.add_book_to_bookshelf(book_to_add)
+    # print(f"{book_to_add.get_title()} has been added to {bookshelf_to_add_to}")
 
 def list_same_genre(library):
     genre_to_search = input("Enter genre you wish to search: \n")
