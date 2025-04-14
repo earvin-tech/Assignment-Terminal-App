@@ -49,7 +49,7 @@ from classes.fiction_book import FictionBook
 
 #     with open("data/books.json", "w") as json_file2:
 #         json.dump(json_to_write2, json_file2, indent=4)
-        
+#        
 
 def save_and_exit(library):
     bookshelf_data = []
