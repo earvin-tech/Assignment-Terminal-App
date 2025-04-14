@@ -23,7 +23,7 @@ def add_book(library):
     # Create instance of book (Fiction or Non-Fiction)
     fiction_or_non_fiction = ""
     
-    while fiction_or_non_fiction != "1" or fiction_or_non_fiction != "2":
+    while fiction_or_non_fiction not in ["1", "2"]:
         
         fiction_or_non_fiction = input("If fiction enter 1, if non-fiction enter 2: ")
         
@@ -70,28 +70,65 @@ def list_all_bookshelves(library):
 def delete_bookshelf(library):
     # take input the name of the bookshelf
     shelf_name = input("Enter the name of the bookshelf you wish to remove: ")
-    # delete the bokshelf
+    # delete the bookshelf
     if library.delete_bookshelf(shelf_name):
         print("Bookshelf deleted\n")
     else:
-        print("No bookshelf with that name\n")
-
-# To fix below
+        print("No bookshelf with that name.\n")
 
 def list_books_in_bookshelf(library):
-    input_bookshelf_to_list = input("Enter bookshelf you wish to list: ")
-    bookshelf_to_list = library.find_bookshelf(input_bookshelf_to_list)
-    print(bookshelf_to_list.get_books())
+    shelf_name = input("Enter bookshelf you wish to list: ")
+    bookshelf = library.find_bookshelf(shelf_name)
+
+
+    if not bookshelf:
+        print("Bookshelf not found.\n")
+        return
+    
+
+    books = bookshelf.get_book_list()
+
+
+    if not books:
+        print(f"No books in '{shelf_name}' shelf.\n")
+    else:
+        print(f"\n Books in '{shelf_name}':")
+        for book in books:
+            print(f"- {book.get_title()} by {book.get_author()} ({book.get_rating()}/5)")
+        print()
+
+
+    # input_bookshelf_to_list = input("Enter bookshelf you wish to list: ")
+    # bookshelf_to_list = library.find_bookshelf(input_bookshelf_to_list)
+    # print(bookshelf_to_list.get_books())
 
 def add_book_to_bookshelf(library):
-    input_book_to_add_to_shelf = input("Enter the book you would like to add to a bookshelf: ")
-    book_to_add = library.find_book(input_book_to_add_to_shelf)
-    input_bookshelf_to_add_to = input("Enter the bookshelf you would like to add to: ")
-    bookshelf_to_add_to = library.find_bookshelf(input_bookshelf_to_add_to)
-    bookshelf_to_add_to.add_book_to_bookshelf(book_to_add)
-    print(f"{book_to_add.get_title()} has been added to {bookshelf_to_add_to}")
+    book_name = input("Enter the name of the book to add to a bookshelf: ")
+    book = library.find_book(book_name)
 
-# To fix above
+
+    if not book:
+        print("Book not found.\n")
+        return
+    
+    shelf_name = input("Enter the bookshelf to add the book to: ")
+    bookshelf = library.find_bookshelf(shelf_name)
+
+    if not bookshelf:
+        print("Bookshelf not found.\n")
+        return
+    
+
+    bookshelf.add_new_book_to_bookshelf(book)
+    print(f"'{book.get_title}' has been added to the {bookshelf.get_name()} shelf.\n")
+
+
+    # input_book_to_add_to_shelf = input("Enter the book you would like to add to a bookshelf: ")
+    # book_to_add = library.find_book(input_book_to_add_to_shelf)
+    # input_bookshelf_to_add_to = input("Enter the bookshelf you would like to add to: ")
+    # bookshelf_to_add_to = library.find_bookshelf(input_bookshelf_to_add_to)
+    # bookshelf_to_add_to.add_book_to_bookshelf(book_to_add)
+    # print(f"{book_to_add.get_title()} has been added to {bookshelf_to_add_to}")
 
 def list_same_genre(library):
     genre_to_search = input("Enter genre you wish to search: \n")
