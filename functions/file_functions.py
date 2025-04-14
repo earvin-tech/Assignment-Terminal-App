@@ -74,6 +74,28 @@ def save_and_exit(library):
     with open("data/library.json", "w") as f:
         json.dump(bookshelf_data, f, indent=4)
 
+    
+    books_data = []
+
+    for book in library.get_all_books():
+        if getattr(book, "genre", None):
+            books_data.append({
+                "title": book.get_title(),
+                "author": book.get_author(),
+                "rating": book.get_rating(),
+                "genre": book.get_genre()
+            })
+        elif getattr(book, "research_topic", None):
+            books_data.append({
+                "title": book.get_title(),
+                "author": book.get_author(),
+                "rating": book.get_rating(),
+                "research_topic": book.get_research_topic()
+            })
+    
+    with open("data/books.json", "w") as f:
+        json.dump(books_data, f, indent=4)
+
 
 
 
