@@ -70,13 +70,11 @@ def list_all_bookshelves(library):
 def delete_bookshelf(library):
     # take input the name of the bookshelf
     shelf_name = input("Enter the name of the bookshelf you wish to remove: ")
-    # delete the bokshelf
+    # delete the bookshelf
     if library.delete_bookshelf(shelf_name):
         print("Bookshelf deleted\n")
     else:
         print("No bookshelf with that name\n")
-
-# To fix below
 
 def list_books_in_bookshelf(library):
     input_bookshelf_to_list = input("Enter bookshelf you wish to list: ")
@@ -90,8 +88,6 @@ def add_book_to_bookshelf(library):
     bookshelf_to_add_to = library.find_bookshelf(input_bookshelf_to_add_to)
     bookshelf_to_add_to.add_book_to_bookshelf(book_to_add)
     print(f"{book_to_add.get_title()} has been added to {bookshelf_to_add_to}")
-
-# To fix above
 
 def list_same_genre(library):
     genre_to_search = input("Enter genre you wish to search: \n")

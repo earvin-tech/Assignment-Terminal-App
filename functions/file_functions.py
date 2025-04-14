@@ -2,6 +2,7 @@ import json
 
 from classes.bookshelf import Bookshelf
 from classes.fiction_book import FictionBook
+from classes.non_fiction_book import NonFictionBook
 
 # def save_and_exit(library):
 #     json_to_write1 = []
@@ -106,11 +107,16 @@ def load_from_file(library):
             rating = book_data.get("rating")
             genre = book_data.get("genre")
 
-            book = FictionBook(title, author, rating, genre)
+            if genre:
+                book = FictionBook(title, author, rating, genre)
+            elif book_data.get("research_topic"):
+                research_topic = book_data.get("research_topic")
+                book = NonFictionBook(title, author, rating, research_topic)
+
             bookshelf.add_new_book_to_bookshelf(book)
 
         library.add_bookshelf(bookshelf)
-        
+
     except FileNotFoundError:
         print("The file does not exist")
 
