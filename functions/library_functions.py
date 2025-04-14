@@ -23,7 +23,7 @@ def add_book(library):
     # Create instance of book (Fiction or Non-Fiction)
     fiction_or_non_fiction = ""
     
-    while fiction_or_non_fiction != "1" or fiction_or_non_fiction != "2":
+    while fiction_or_non_fiction not in ["1", "2"]:
         
         fiction_or_non_fiction = input("If fiction enter 1, if non-fiction enter 2: ")
         
