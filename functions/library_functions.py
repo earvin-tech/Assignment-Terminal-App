@@ -103,24 +103,44 @@ def list_books_in_bookshelf(library):
     # print(bookshelf_to_list.get_books())
 
 def add_book_to_bookshelf(library):
-    book_name = input("Enter the name of the book to add to a bookshelf: ")
-    book = library.find_book(book_name)
-
-
-    if not book:
-        print("Book not found.\n")
-        return
-    
-    shelf_name = input("Enter the bookshelf to add the book to: ")
+    shelf_name = input("Enter bookshelf to add to: ")
     bookshelf = library.find_bookshelf(shelf_name)
 
     if not bookshelf:
         print("Bookshelf not found.\n")
         return
-    
 
-    bookshelf.add_new_book_to_bookshelf(book)
-    print(f"'{book.get_title}' has been added to the {bookshelf.get_name()} shelf.\n")
+    # Collect book details
+    book_title = input("Enter title of book: ")
+    book_author = input("Enter author of book: ")
+    book_rating = input("Enter your rating of the book 1-5: ")
+
+    # Validate rating
+    while not book_rating.isdigit() or int(book_rating) < 1 or int(book_rating) > 5:
+        print("Rating must be between 1-5. Try Again.\n")
+        book_rating = input("Enter your rating of the book 1-5: ")
+
+    # Determine book type
+    fiction_or_non_fiction = input("If fiction enter 1, if non-fiction enter 2: ")
+
+    if fiction_or_non_fiction == "1":
+        book_genre = input("What is the genre?: ")
+        new_book = FictionBook(book_title, book_author, int(book_rating), book_genre)
+    elif fiction_or_non_fiction == "2":
+        book_research_topic = input("What is the research topic?: ")
+        new_book = NonFictionBook(book_title, book_author, int(book_rating), book_research_topic)
+    else:
+        print("Invalid option, select 1 or 2.\n")
+        return
+
+    # Add book to bookshelf
+    bookshelf.add_new_book_to_bookshelf(new_book)
+
+    # Also add book to the entire library
+    library.add_book(new_book)
+
+    print("Book has been added to the bookshelf and the entire library.\n")
+
 
 
     # input_book_to_add_to_shelf = input("Enter the book you would like to add to a bookshelf: ")
@@ -131,49 +151,37 @@ def add_book_to_bookshelf(library):
     # print(f"{book_to_add.get_title()} has been added to {bookshelf_to_add_to}")
 
 def list_same_genre(library):
-    genre_to_search = input("Enter genre you wish to search: \n")
-    genre_list = []
-    for book in library.get_all_books():
-        if book.get_genre() == genre_to_search:
-            genre_list.append(book.get_title())
-        else:
-            continue
-    print(f"The following are books in the genre {genre_to_search}:\n")
-    for item in genre_list:
-        print(item)
-    print("\n")
+    genre_input = input("Enter genre to search for: ").strip().lower()
+    books = library.get_all_books()
+    if not books:
+        print("No books in the library.\n")
+        return
+
+    # Filter fiction books that match the specified genre
+    matching_books = [
+        book for book in books
+        if isinstance(book, FictionBook) and book.get_genre().lower() == genre_input
+    ]
+
+    if not matching_books:
+        print(f"No books found in genre '{genre_input}'.\n")
+    else:
+        print(f"\nBooks in genre '{genre_input}':")
+        for book in matching_books:
+            print(f"- {book.get_title()} by {book.get_author()} ({book.get_rating()}/5)")
+        print()
+
 
 def list_by_rating(library):
-    rating_list = []
-    while len(rating_list) != len(library.get_all_books()):
-        for book in library.get_all_books():
-            if book.get_rating() == "5":
-                rating_list.append(book)
-            else:
-                continue
-        for book in library.get_all_books():
-            if book.get_rating() == "4":
-                rating_list.append(book)
-            else:
-                continue
-        for book in library.get_all_books():
-            if book.get_rating() == "3":
-                rating_list.append(book)
-            else:
-                continue
-        for book in library.get_all_books():
-            if book.get_rating() == "2":
-                rating_list.append(book)
-            else:
-                continue
-        for book in library.get_all_books():
-            if book.get_rating() == "1":
-                rating_list.append(book)
-            else:
-                continue
-    print("Listing in order of highest rating:\n")
-    for book in rating_list:
-        print(book.get_title())
-    print("\n")
-        
-    
+    books = library.get_all_books()
+    if not books:
+        print("No books in the library.\n")
+        return
+
+    # Sort books by rating in descending order
+    sorted_books = sorted(books, key=lambda b: b.get_rating(), reverse=True)
+
+    print("\nBooks sorted by rating:")
+    for book in sorted_books:
+        print(f"- {book.get_title()} by {book.get_author()} ({book.get_rating()}/5)")
+    print()
