@@ -173,15 +173,27 @@ def list_same_genre(library):
 
 
 def list_by_rating(library):
-    books = library.get_all_books()
-    if not books:
+    # Combine all books from library (main list + bookshelves)
+    all_books = []  
+    # Include books from main library list
+    for book in library.get_all_books():
+        all_books.append(book)
+    # Include books from each bookshelf
+    for shelf in library.get_all_bookshelves():
+        for book in shelf.get_book_list():
+            # Avoid adding duplicate books (by title) twice
+            if not any(b.get_title() == book.get_title() for b in all_books):
+                all_books.append(book)
+
+    if not all_books:
         print("No books in the library.\n")
         return
 
-    # Sort books by rating in descending order
-    sorted_books = sorted(books, key=lambda b: b.get_rating(), reverse=True)
+    # Sort books by rating (numeric) in descending order
+    sorted_books = sorted(all_books, key=lambda b: int(b.get_rating()), reverse=True)
 
     print("\nBooks sorted by rating:")
     for book in sorted_books:
         print(f"- {book.get_title()} by {book.get_author()} ({book.get_rating()}/5)")
     print()
+
