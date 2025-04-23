@@ -112,6 +112,18 @@ def add_book_to_bookshelf(library):
 
     # Collect book details
     book_title = input("Enter title of book: ")
+    
+    # Check if book is in main library
+    existing_book = library.find_book(book_title)
+
+    #If yes, add to bookshelf
+    if existing_book:
+        bookshelf.add_new_book_to_bookshelf(existing_book)
+        print(f"{existing_book} has been added to the bookshelf.")
+        return
+        
+
+    
     book_author = input("Enter author of book: ")
     book_rating = input("Enter your rating of the book 1-5: ")
 
