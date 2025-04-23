@@ -34,6 +34,13 @@
                 "rating": 5,
                 "genre": "Southern Gothic",
                 "research_topic": null
+            },
+            {
+                "title": "The Catcher in the Rye",
+                "author": "J.D. Salinger",
+                "rating": 4,
+                "genre": "Literary Fiction",
+                "research_topic": null
             }
         ]
     }

@@ -14,7 +14,7 @@ def open_menu():
     print("Enter 1 to add a new book")
     print("Enter 2 to list all books in the library")
     print("Enter 3 to add a new bookshelf")
-    print("Enter 4 to add existing book to an existing bookshelf")
+    print("Enter 4 to add book to an existing bookshelf")
     print("Enter 5 to remove a bookshelf")
     print("Enter 6 to list all bookshelves")
     print("Enter 7 to list books in a bookshelf")
@@ -43,7 +43,7 @@ while choice != "0":
     # Add bookshelf
     elif choice == "3":
         add_new_bookshelf(library)
-    # Add existing book to existing bookshelf
+    # Add book to existing bookshelf
     elif choice == "4":
         add_book_to_bookshelf(library)
         pass
