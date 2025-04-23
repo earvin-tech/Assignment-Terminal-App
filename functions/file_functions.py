@@ -106,38 +106,29 @@ def load_from_file(library):
         with open("data/library.json", "r") as json_file1:
             json_to_load1 = json.load(json_file1)
 
-        # for bookshelf in json_to_load1:
-        #     bookshelf = Bookshelf(bookshelf["bookshelf_name"])
-        #     if bookshelf.get_books():
-        #         i = 0
-        #         for book in bookshelf.get_books():
-        #             book = FictionBook(f"title{i}", f"author{i}",f"rating{i}", f"genre{i}")
-        #             bookshelf.add_new_book_to_bookshelf(book)
-        #             i += 1
-            
-        #     library.add_bookshelf(bookshelf)
-
         for shelf_entry in json_to_load1:
-            shelf_name = shelf_entry["bookshelf_name"]
+            shelf_name = shelf_entry.get("bookshelf_name")
             bookshelf = Bookshelf(shelf_name)
 
-        books = shelf_entry.get("books", [])
+            books = shelf_entry.get("books", [])
 
-        for book_data in books:
-            title = book_data.get("title")
-            author = book_data.get("author")
-            rating = book_data.get("rating")
-            genre = book_data.get("genre")
-
-            if genre:
-                book = FictionBook(title, author, rating, genre)
-            elif book_data.get("research_topic"):
+            for book_data in books:
+                title = book_data.get("title")
+                author = book_data.get("author")
+                rating = book_data.get("rating")
+                genre = book_data.get("genre")
                 research_topic = book_data.get("research_topic")
-                book = NonFictionBook(title, author, rating, research_topic)
 
-            bookshelf.add_new_book_to_bookshelf(book)
+                if genre:
+                    book = FictionBook(title, author, rating, genre)
+                elif research_topic:
+                    book = NonFictionBook(title, author, rating, research_topic)
+                else:
+                    continue  # Skip if neither genre nor research_topic is provided
 
-        library.add_bookshelf(bookshelf)
+                bookshelf.add_book_to_bookshelf(book)
+
+            library.add_bookshelf(bookshelf)
 
     except FileNotFoundError:
         print("The file does not exist")
@@ -145,11 +136,22 @@ def load_from_file(library):
     try:
         with open("data/books.json", "r") as json_file2:
             json_to_load2 = json.load(json_file2)
-        
-        for book in json_to_load2:
-            if book["genre"]:
-                book = FictionBook(book["title_book"],book["author_book"], book["rating_book"], book["genre"])
+
+        for book_data in json_to_load2:
+            title = book_data.get("title")
+            author = book_data.get("author")
+            rating = book_data.get("rating")
+            genre = book_data.get("genre")
+            research_topic = book_data.get("research_topic")
+
+            if genre:
+                book = FictionBook(title, author, rating, genre)
+            elif research_topic:
+                book = NonFictionBook(title, author, rating, research_topic)
+            else:
+                continue  # Skip if neither genre nor research_topic is provided
+
             library.add_book(book)
-    
+
     except FileNotFoundError:
         print("File does not exist")

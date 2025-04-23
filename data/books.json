@@ -1,1 +1,38 @@
-[]
+[
+    {
+        "title": "Sapiens: A Brief History of Humankind",
+        "author": "Yuval Noah Harari",
+        "rating": 5,
+        "research_topic": "Human Evolution"
+    },
+    {
+        "title": "The Catcher in the Rye",
+        "author": "J.D. Salinger",
+        "rating": 4,
+        "genre": "Literary Fiction"
+    },
+    {
+        "title": "A Brief History of Time",
+        "author": "Stephen Hawking",
+        "rating": 5,
+        "research_topic": "Cosmology"
+    },
+    {
+        "title": "The Selfish Gene",
+        "author": "Richard Dawkins",
+        "rating": 4,
+        "research_topic": "Evolutionary Biology"
+    },
+    {
+        "title": "1984",
+        "author": "George Orwell",
+        "rating": 5,
+        "genre": "Dystopian"
+    },
+    {
+        "title": "To Kill a Mockingbird",
+        "author": "Harper Lee",
+        "rating": 5,
+        "genre": "Southern Gothic"
+    }
+]

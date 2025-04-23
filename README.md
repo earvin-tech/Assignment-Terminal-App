@@ -1,12 +1,12 @@
 # Personal Library App [Setup Guide]
 
 Welcome to the Personal Library App. This following app allows you to add books and bookshelves to organise your books in a neat format.
+
 Please follow this setup guide to get started.
 
 ## Licenses 
-This app has the following licenses: 
+This app has the following license: 
 - MIT license 
-- BSD license
 
 ## Set Up
 
