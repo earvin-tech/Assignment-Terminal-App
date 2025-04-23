@@ -16,11 +16,7 @@ class Bookshelf:
             return None
 
     def get_books(self):
-        if self.books:
-            for book in self.books:
-                return book
-        else:
-            return None
+        return self.books if self.books else None
 
     def __str__(self):
         return f"Bookshelf: {self.bookshelf_name}"

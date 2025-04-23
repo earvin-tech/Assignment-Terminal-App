@@ -1,5 +1,47 @@
 [
     {
-        "bookshelf_name": "Fantasy"
+        "bookshelf_name": "Science",
+        "books": [
+            {
+                "title": "A Brief History of Time",
+                "author": "Stephen Hawking",
+                "rating": 5,
+                "genre": null,
+                "research_topic": "Cosmology"
+            },
+            {
+                "title": "The Selfish Gene",
+                "author": "Richard Dawkins",
+                "rating": 4,
+                "genre": null,
+                "research_topic": "Evolutionary Biology"
+            }
+        ]
+    },
+    {
+        "bookshelf_name": "Fiction",
+        "books": [
+            {
+                "title": "1984",
+                "author": "George Orwell",
+                "rating": 5,
+                "genre": "Dystopian",
+                "research_topic": null
+            },
+            {
+                "title": "To Kill a Mockingbird",
+                "author": "Harper Lee",
+                "rating": 5,
+                "genre": "Southern Gothic",
+                "research_topic": null
+            },
+            {
+                "title": "The Catcher in the Rye",
+                "author": "J.D. Salinger",
+                "rating": 4,
+                "genre": "Literary Fiction",
+                "research_topic": null
+            }
+        ]
     }
 ]
