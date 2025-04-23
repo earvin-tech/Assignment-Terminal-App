@@ -118,12 +118,10 @@ def add_book_to_bookshelf(library):
 
     #If yes, add to bookshelf
     if existing_book:
-        bookshelf.add_new_book_to_bookshelf(existing_book)
+        bookshelf.add_book_to_bookshelf(existing_book)
         print(f"{existing_book} has been added to the bookshelf.")
         return
         
-
-    
     book_author = input("Enter author of book: ")
     book_rating = input("Enter your rating of the book 1-5: ")
 
